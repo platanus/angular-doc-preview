@@ -1,10 +1,11 @@
 {
   "name": "angular-doc-preview",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/platanus/angular-doc-preview",
   "description": "directive that allows you to show a file preview from a given url",
   "authors": [
-    "Platanus", "Leandro Segovia <ldlsegovia@gmail.com>"
+    "Platanus",
+    "Leandro Segovia <ldlsegovia@gmail.com>"
   ],
   "repository": {
     "type": "git",
