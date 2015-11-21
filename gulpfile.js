@@ -14,29 +14,48 @@ var gulp = require('gulp'),
 
 var paths = {
   src: ['./src/index.js','./src/*.js'],
+  sass: ['./sass/*.scss'],
   dist: ['./dist/*.js']
 };
 
 var sourceMin = 'angular-doc-preview.min.js';
+var source = 'angular-doc-preview.js';
 
-gulp.task('lint', function() {
+gulp.task('js-lint', function() {
   return gulp.src(paths.src)
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('build', ['lint', 'sass'], function() {
+gulp.task('build', ['js-lint', 'build-src', 'build-min-src', 'build-css', 'build-sass'], function() {
+  return gulp.src(paths.dist)
+    .pipe(notify('Build finished'));
+});
+
+gulp.task('build-src', function() {
+  return gulp.src(paths.src)
+    .pipe(ngannotate())
+    .pipe(concat(source))
+    .pipe(size())
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('build-min-src', function() {
   return gulp.src(paths.src)
     .pipe(ngannotate())
     .pipe(uglify())
     .pipe(concat(sourceMin))
     .pipe(size())
-    .pipe(gulp.dest('dist'))
-    .pipe(notify('Build finished'));
+    .pipe(gulp.dest('dist'));
 });
 
-gulp.task('sass', function() {
-  gulp.src('./sass/*.scss')
+gulp.task('build-sass', function() {
+  return gulp.src(paths.sass)
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('build-css', function() {
+  gulp.src(paths.sass)
     .pipe(sourcemaps.init())
       .pipe(sass({errLogToConsole: true}))
     .pipe(sourcemaps.write())

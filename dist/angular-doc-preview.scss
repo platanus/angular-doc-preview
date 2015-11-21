@@ -1,0 +1,21 @@
+$primary: #E9E9E9;
+
+.doc-preview {
+  min-height: 24px;
+  clear: both;
+  margin: 10px 0 10px 0;
+
+  .image-preview {
+    max-height: 150px;
+    border: solid 1px $primary;
+    padding: 5px;
+
+    &.icon {
+      width: 24px;
+      height: 24px;
+      padding: 0 5px 0 0;
+      border: none;
+      vertical-align: middle;
+    }
+  }
+}
