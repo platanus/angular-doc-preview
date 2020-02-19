@@ -4,6 +4,12 @@ This library is a directive that allows you to show a file preview from a given 
 * a link showing the file name with an icon corresponding with the file extension.
 * a thumbnail if the document's url represents an image file.
 
+## Angular Doc Preview is no longer maintained
+
+- We will leave the Issues open as a discussion forum only.
+- We do not guarantee a response from us in the Issues.
+- We are no longer accepting pull requests.
+
 ## Installation
 
 ```bash
