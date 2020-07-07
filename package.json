@@ -25,6 +25,6 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "lazy-ass": "^0.5.8",
     "ng-describe": "^0.14.0",
-    "npm": "^2.10.1"
+    "npm": "^6.14.6"
   }
 }
